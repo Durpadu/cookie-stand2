@@ -8,7 +8,7 @@ var storeTimes= [ '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2p
 var cookieTotal= [];
 
 var pikeUl = document.getElementById('pikeUl');
-var seatacUl = document.getElementById('setacUl');
+var seatacUl = document.getElementById('seatacUl');
 var seaCentUl = document.getElementById('seaCentUl');
 var capUl = document.getElementById('capUl');
 var alkiUl = document.getElementById('alkiUl');
@@ -27,6 +27,7 @@ var pikeplace= {
   aveSale: 6.3,
   newAveSale: 0,
   timeCookieTotal: [],
+  dayCookieTotal:0,
   randomCustomer: function () {
     var min= Math.ceil(this.minCust);
     var max= Math.floor(this.maxCust);
@@ -38,15 +39,12 @@ var pikeplace= {
     this.newAveSale= this.randomCustomer();
     this.timeCookieTotal.push(this.newAveSale);
     var liEl = document.createElement('li');
-    liEl.textContent = `${storeTimes[x]}: ${this.newAveSale}`
+    liEl.textContent = `${storeTimes[x]}: ${this.newAveSale}`;
     pikeUl.appendChild(liEl);
     console.log(this.newAveSale)
     };
   },
 }
-
-pikeplace.render();
-
 
 var seatac= {
   minCust: 3,
@@ -65,14 +63,12 @@ var seatac= {
     this.newAveSale= this.randomCustomer();
     this.timeCookieTotal.push(this.newAveSale);
     var liEl = document.createElement('li');
-    liEl.textContent = `${storeTimes[x]}: ${this.newAveSale}`
-    setacUl.appendChild(liEl);
+    liEl.textContent = `${storeTimes[x]}: ${this.newAveSale}`;
+    seatacUl.appendChild(liEl);
     console.log(this.newAveSale)
     };
   },
 }
-
-seatac.render();
 
 var seattleCenter= {
   minCust: 11,
@@ -91,14 +87,12 @@ var seattleCenter= {
     this.newAveSale= this.randomCustomer();
     this.timeCookieTotal.push(this.newAveSale);
     var liEl = document.createElement('li');
-    liEl.textContent = `${storeTimes[x]}: ${this.newAveSale}`
+    liEl.textContent = `${storeTimes[x]}: ${this.newAveSale}`;
     seaCentUl.appendChild(liEl);
     console.log(this.newAveSale)
     };
   },
 }
-
-seattleCenter.render();
 
 var capHill= {
   minCust: 20,
@@ -117,14 +111,12 @@ var capHill= {
     this.newAveSale= this.randomCustomer();
     this.timeCookieTotal.push(this.newAveSale);
     var liEl = document.createElement('li');
-    liEl.textContent = `${storeTimes[x]}: ${this.newAveSale}`
+    liEl.textContent = `${storeTimes[x]}: ${this.newAveSale}`;
     capUl.appendChild(liEl);
     console.log(this.newAveSale)
     };
   },
 }
-
-capHill.render();
 
 var alki= {
   minCust: 2,
@@ -143,11 +135,16 @@ var alki= {
     this.newAveSale= this.randomCustomer();
     this.timeCookieTotal.push(this.newAveSale);
     var liEl = document.createElement('li');
-    liEl.textContent = `${storeTimes[x]}: ${this.newAveSale}`
+    liEl.textContent = `${storeTimes[x]}: ${this.newAveSale}`;
     alkiUl.appendChild(liEl);
     console.log(this.newAveSale)
     };
   },
 }
 
+
+pikeplace.render();
+seatac.render();
+seattleCenter.render();
+capHill.render();
 alki.render();
